@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  get 'static_pages/index'
+
+  get 'static_pages_controller/index'
+
   resources :phrases
 
-  root "phrases#index"
+  root  'static_pages#home'
+  match '/help',    to: 'static_pages#help',    via: 'get'
+  #root "phrases#index"
 
   get "/phrases/:id?lang=:lang", to: "phrases#show"
 

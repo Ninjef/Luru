@@ -26,7 +26,7 @@ class PhrasesController < ApplicationController
 		#If the file already exists, no need to download it
 			if File.exist?("/audio/"+@phrase_t.downcase.tr(' ','_')+".mp3") == false
 				pronounce = @translator.speak @phrase_t, :language => params[:lang], :format => 'audio/mp3', :options => 'MaxQuality'
-				@writepath = "/home/jeff/Documents/Programming/Rails/Luru1/public/audio/"+@phrase_t.downcase.tr(' ','_')+".mp3"
+				@writepath = "/Users/taylordusting/Luru/public/audio/"+@phrase_t.downcase.tr(' ','_')+".mp3"
 				open(@writepath, 'wb') { |f| f.write pronounce }
 			end
 			@writepath = "/audio/"+@phrase_t.downcase.tr(' ','_')+".mp3"
