@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 gem 'bing_translator'
 # Used to search Bing for images
 gem 'bing-search'
+# Used to allow interaction with mySQL database
+gem 'mysql'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -44,6 +46,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  
 end
 

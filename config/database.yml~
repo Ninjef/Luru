@@ -11,10 +11,8 @@ default: &default
   password: nisprsn13245
 
 development:
-  adapter: mysql
-  database: Luru1_development
-  host: 127.0.0.1
-  password: nisprsn13245
+  <<: *default
+  database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

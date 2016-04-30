@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   root "phrases#index"
 
-  #root "localhost:3000/phrases/1?lang=fr"
-
   get "/phrases/:id?lang=:lang", to: "phrases#show"
 
   # The priority is based upon order of creation: first created -> highest priority.
