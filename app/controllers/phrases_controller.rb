@@ -31,7 +31,7 @@ class PhrasesController < ApplicationController
 			end
 			@writepath = "/audio/"+@phrase_t.downcase.tr(' ','_')+".mp3"
 
-		#Set up "Next" and "Previous" buttons to route to the next phrase in the database
+		#Set up "Next" and "Previous" buttons to orute to the next phrase in the database
 		#Error handler keeps this from crashing when there is no next or previous phrase in the database
 		#**Need to eventually make this select the next phrase in the current lesson
 			begin
