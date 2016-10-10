@@ -1,9 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  phrase: MyString
-  image_search_phrase1: MyString
+dog:
+  id: 1
+  phrase: a dog
+  image_search_phrase1: a dog
 
-two:
-  phrase: MyString
-  image_search_phrase1: MyString
+cat:
+  id: 2
+  phrase: a cat
+  image_search_phrase1: a cat
+
+horse:
+  id: 3
+  phrase: a horse
+  image_search_phrase1: a horse
+
+deer:
+  id: 4
+  phrase: a deer
+  image_search_phrase1: a deer
+
+lion:
+  id: 5
+  phrase: a lion
+  image_search_phrase1: a lion
