@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
-<body>
+<!-- <body onload="playAud()s;"> -->
 
 <!-- The following is supposed to be a simple navigation bar at the top of the page, but is unnecessary at this point
 
@@ -103,11 +103,11 @@ This is supposed to be on a version of this page where the phrase is not visible
 <!--These are the buttons to navigate to the next or previous phrases -->
   <div>
    	<div style = "float:right;">
-    		<a href= <%="/phrases/"+@next.to_s+"?lang="+params[:lang]%> class="btn btn-primary btn-lg" role="button" style="width:150px"><h3>Next</h3></a>
+    		<a href= <%="/phrases/#{@next.to_s}?lang=#{params[:lang]}"%> class="btn btn-primary btn-lg" role="button" style="width:150px"><h3>Next</h3></a>
   	</div>
 
   	<div style = "float:left;">
-  		<a href= <%="/phrases/"+@previous.to_s+"?lang="+params[:lang]%> class="btn btn-primary btn-lg" role="button" style="width:150px"><h3>Previous</h3></a>
+  		<a href= <%="/phrases/#{@previous.to_s}?lang=#{params[:lang]}"%> class="btn btn-primary btn-lg" role="button" style="width:150px"><h3>Previous</h3></a>
   	</div>
   </div>
 
@@ -118,16 +118,20 @@ This is supposed to be on a version of this page where the phrase is not visible
 
 <!--This is where the audio for the phrase pronunciation is stored
 The javascript is what plays the audio when the "Pronounce" button is pushed-->
-  <audio id = 'audio' autoplay>
-    	<source src=<%=@writepath%>  type="audio/mpeg">
+  <audio id = 'audio'>
+    	<source src=<%= audio_path(@audio_file) %>  type="audio/mpeg">
   </audio>
 
   <script> 
   	var audio = document.getElementById("audio"); 
+    audio.play
 
   	function playAud() { 
+        audio.load;
   	    audio.play();
   	} 
+
+    window.onload = playAud
   </script>
 
 
