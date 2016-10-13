@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Used for debugging
+gem 'pry'
+
 # Used to create translations of phrases
 gem 'bing_translator'
 # Used to search Bing for images
