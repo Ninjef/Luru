@@ -13,23 +13,20 @@ class PhrasesController < ApplicationController
 
 	def show
 	#Find the phrase specified by the phrase ID parameter, as well as the image search phrase for that phrase
-		phrase = Phrase.find(params[:id]).phrase
-		srch_phrase = Phrase.find(params[:id]).image_search_phrase1
-		if srch_phrase.blank?
-			srch_phrase = phrase
-		end
+		phrase_text = Phrase.find(params[:id]).text
+		image_search_text = Phrase.find(params[:id]).image_search_text
 
 	#Get image search results from Bing for the image search phrase
-		@results = Rails.application.config.bing.image(srch_phrase)
-		@phrase_t = @translator.translate phrase, :from => 'en', :to => params[:lang]
+		@results = Rails.application.config.bing.image(image_search_text)
+		@translated_phrase_text = @translator.translate phrase_text, :from => 'en', :to => params[:lang]
 
 	# Save the audio file of this phrase being spoken so it can be called on webpage
 	# If the file already exists, no need to download it
-		@audio_file = "#{@phrase_t.downcase.tr(' ','_')}_#{params[:lang]}.mp3"
+		@audio_file = "#{@translated_phrase_text.downcase.tr(' ','_')}_#{params[:lang]}.mp3"
 		audio_path = "/app/assets/audios/#{@audio_file}"
 		writepath = "#{Rails.root}#{audio_path}"
 		unless File.exist?(writepath)
-			audio_data = @translator.speak @phrase_t, :language => params[:lang], :format => 'audio/mp3', :options => 'MaxQuality'
+			audio_data = @translator.speak @translated_phrase_text, :language => params[:lang], :format => 'audio/mp3', :options => 'MaxQuality'
 			File.open(writepath, 'wb') { |f| f.write audio_data }
 		end
 

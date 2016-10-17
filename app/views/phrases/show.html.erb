@@ -75,7 +75,7 @@
 <!--Container for phrase and images -->
   <div class="container">
     <div class="jumbotron" align = "center">
-      <h1><%=@phrase_t%></h1>
+      <h1><%=@translated_phrase_text%></h1>
       <img src= <%= @results.at(0).thumbnail.url %>>
       <img src= <%= @results.at(1).thumbnail.url %>>
       <img src= <%= @results.at(2).thumbnail.url %>>
@@ -92,7 +92,7 @@ This is supposed to be on a version of this page where the phrase is not visible
     <script>
     function validateForm() {
         var x = document.getElementById('Phrase_Quiz').value;
-        if (x == "<%=@phrase_t.to_s%>") {
+        if (x == "<%=@translated_phrase_text.to_s%>") {
             alert("Correct!");
         } else {
           alert("Incorrect")
