@@ -16,5 +16,5 @@
 !/log/.keep
 /tmp
 
-# Ignore gemfile.lock
-Gemfile.lock
+# Ignore audio assets
+/app/assets/audios/*

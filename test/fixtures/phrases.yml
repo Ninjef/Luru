@@ -1,26 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 dog:
-  id: 1
-  phrase: a dog
-  image_search_phrase1: a dog
+  text: a dog
+  image_search_text: a dog
 
 cat:
-  id: 2
-  phrase: a cat
-  image_search_phrase1: a cat
+  text: a cat
+  image_search_text: a cat
 
 horse:
-  id: 3
-  phrase: a horse
-  image_search_phrase1: a horse
+  text: a horse
+  image_search_text: a horse
 
 deer:
-  id: 4
-  phrase: a deer
-  image_search_phrase1: a deer
+  text: a deer
+  image_search_text: a deer
 
 lion:
-  id: 5
-  phrase: a lion
-  image_search_phrase1: a lion
+  text: a lion
+  image_search_text: a lion
