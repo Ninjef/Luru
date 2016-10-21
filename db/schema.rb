@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013190059) do
+ActiveRecord::Schema.define(version: 20161021011000) do
 
   create_table "lessons", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20161013190059) do
     t.string   "image_search_text"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "lesson_id"
+    t.integer  "lesson_order"
   end
 
   create_table "taggings", force: :cascade do |t|

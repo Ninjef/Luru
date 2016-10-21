@@ -5,7 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
+
+<header>
+<!-- Dropdown menu for switching languages and showing which language is currently selected  -->
+  <select name="forma" onchange="location = this.options[this.selectedIndex].value;">
+    <option selected disabled><%=@language%></option>
+    <option value=<%="#{request.path}?lang=en"%>>English</option>
+    <option value=<%="#{request.path}?lang=fr"%>>Francais - French</option>
+    <option value=<%="#{request.path}?lang=de"%>>Deutsch - German</option>
+    <option value=<%="#{request.path}?lang=es"%>>Espanol - Spanish</option>
+    <option value=<%="#{request.path}?lang=fi"%>>Suomi - Finnish</option>
+    <option value=<%="#{request.path}?lang=ja"%>>日本人 - Japanese</option>
+  </select>
+
+  <p> <%= link_to "Lessons", lessons_path %> </p>
+
+</header>
 <body>
 
 <%= yield %>

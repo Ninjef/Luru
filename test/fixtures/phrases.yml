@@ -1,21 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 dog:
+  lesson: basic_animals
   text: a dog
   image_search_text: a dog
+  lesson_order: 1
 
 cat:
+  lesson: basic_animals
   text: a cat
   image_search_text: a cat
+  lesson_order: 2
 
 horse:
+  lesson: basic_animals
   text: a horse
   image_search_text: a horse
+  lesson_order: 3
 
 deer:
+  lesson: basic_animals
   text: a deer
   image_search_text: a deer
+  lesson_order: 4
 
 lion:
+  lesson: basic_animals
   text: a lion
   image_search_text: a lion
+  lesson_order: 5
