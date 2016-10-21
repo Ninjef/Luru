@@ -1,0 +1,12 @@
+<h1> Lessons </h1>
+
+<ul>
+  <% @lessons.each do |lesson| %>
+    <li><%= link_to lesson.name, lesson_path(lesson) %>
+      <ul>
+        <li><%= lesson.phrases.count %> Phrases</li>
+        <li><%= lesson.phrase_tags %></li>
+      </ul>
+    </li>
+  <%end%>
+</ul>
