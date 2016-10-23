@@ -6,6 +6,10 @@ class Phrase < ActiveRecord::Base
   validates :text, presence: true
   validates :image_search_text, presence: true
 
+  def to_s
+    text
+  end
+
   def next_in_lesson
     Lesson.find(self.lesson_id)
           .phrases

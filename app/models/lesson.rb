@@ -3,6 +3,10 @@ class Lesson < ActiveRecord::Base
 
   validates :name, presence: true
 
+  def to_s
+    name
+  end
+
   def first_phrase
     self.phrases.order("lesson_order asc").first
   end
