@@ -29,3 +29,15 @@ lion:
   text: a lion
   image_search_text: a lion
   lesson_order: 5
+
+flower:
+  lesson: basic_plants
+  text: a flower
+  image_search_text: a flower
+  lesson_order: 1
+
+cactus:
+  lesson: basic_plants
+  text: a cactus
+  image_search_text: a cactus
+  lesson_order: 2
