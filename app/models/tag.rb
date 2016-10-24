@@ -4,4 +4,8 @@ class Tag < ActiveRecord::Base
 
   validates :name, presence: true
   validates :name, length: { maximum: 50 }
+
+  def to_s
+    name
+  end
 end

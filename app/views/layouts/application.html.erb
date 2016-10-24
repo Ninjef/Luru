@@ -10,18 +10,7 @@
 
 <header>
 <!-- Dropdown menu for switching languages and showing which language is currently selected  -->
-  <select name="forma" onchange="location = this.options[this.selectedIndex].value;">
-    <option selected disabled><%=@language%></option>
-    <option value=<%="#{request.path}?lang=en"%>>English</option>
-    <option value=<%="#{request.path}?lang=fr"%>>Francais - French</option>
-    <option value=<%="#{request.path}?lang=de"%>>Deutsch - German</option>
-    <option value=<%="#{request.path}?lang=es"%>>Espanol - Spanish</option>
-    <option value=<%="#{request.path}?lang=fi"%>>Suomi - Finnish</option>
-    <option value=<%="#{request.path}?lang=ja"%>>日本人 - Japanese</option>
-  </select>
-
-  <p> <%= link_to "Lessons", lessons_path %> </p>
-
+  <%= select_tag('language-dropdown', options_for_select(Language.all.pluck('name','code')), onchange: 'changeLanguageParam()') %>
 </header>
 <body>
 
@@ -29,3 +18,19 @@
 
 </body>
 </html>
+
+<script>
+
+  var languageSelector = document.getElementById("language-dropdown");
+
+      function changeLanguageParam() {
+        var url=window.location.href;
+        selectedLanguage = languageSelector.value
+
+        urlWithoutLanguageParam = url.replace(/(language=\w*|\&language=\w*)/,"");
+        separator = (url.indexOf("?") === -1)? "?" : "&";
+        newUrl = urlWithoutLanguageParam + separator + "language=" + selectedLanguage;
+        cleanNewUrl = newUrl.replace("?&","?");
+        window.location.href = cleanNewUrl;
+      }
+</script>

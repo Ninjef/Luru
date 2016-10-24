@@ -4,4 +4,8 @@ class Tagging < ActiveRecord::Base
 
   validates :tag_id, presence: true
   validates :phrase_id, presence: true
+
+  def to_s
+    "#{phrase} - #{tag}"
+  end
 end
