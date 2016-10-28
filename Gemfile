@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# User Authentication
+gem 'devise'
+
 # Used for debugging
 gem 'pry'
 

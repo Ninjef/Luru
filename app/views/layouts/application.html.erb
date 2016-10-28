@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
+<% [:notice, :alert].each do |level| %>
+  <% if flash[level] %>
+    <div class="flash <%= level %>"><%= flash[level] %></div>
+  <% end %>
+<% end %>
+
 <header>
 <!-- Dropdown menu for switching languages and showing which language is currently selected  -->
   <%= select_tag('language-dropdown', options_for_select(Language.all.pluck('name','code')), onchange: 'changeLanguageParam()') %>
