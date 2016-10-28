@@ -24,11 +24,11 @@
 <!--These are the buttons to navigate to the next or previous phrases -->
   <div>
    	<div style = "float:right;">
-      <%= link_to("Next", "#{lesson_phrase_path(@lesson, @phrase.next_in_lesson)}?lang=es", class: "btn btn-primary btn-lg", style: "width:150px") if @phrase.next_in_lesson %>
+      <%= link_to("Next", lesson_phrase_path(@lesson, @next_phrase, language_id: current_user.target_language.id), class: "btn btn-primary btn-lg", style: "width:150px") if @next_phrase %>
   	</div>
 
   	<div style = "float:left;">
-  		<%= link_to("Previous", "#{lesson_phrase_path(@lesson, @phrase.previous_in_lesson)}?lang=es", class: "btn btn-primary btn-lg", style: "width:150px") if @phrase.previous_in_lesson %>
+  		<%= link_to("Previous", lesson_phrase_path(@lesson, @previous_phrase, language_id: current_user.target_language.id), class: "btn btn-primary btn-lg", style: "width:150px") if @previous_phrase %>
   	</div>
   </div>
 

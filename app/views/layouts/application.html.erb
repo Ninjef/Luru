@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Luru1</title>
+  <title>Luru</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
-<% [:notice, :alert].each do |level| %>
-  <% if flash[level] %>
-    <div class="flash <%= level %>"><%= flash[level] %></div>
-  <% end %>
-<% end %>
-
-<header>
-<!-- Dropdown menu for switching languages and showing which language is currently selected  -->
-  <%= select_tag('language-dropdown', options_for_select(Language.all.pluck('name','code')), onchange: 'changeLanguageParam()') %>
-</header>
 <body>
 
-<%= yield %>
+  <% [:notice, :alert].each do |level| %>
+    <% if flash[level] %>
+      <div class="flash <%= level %>"><%= flash[level] %></div>
+    <% end %>
+  <% end %>
+
+  <header>
+    <p>Currently Learning: <%= "#{current_user.target_language.name}" %></p>
+
+    <aside id="login_status">
+      <%= user_logged_in_msg %>
+    </aside>
+  </header>
+
+  <%= yield %>
 
 </body>
 </html>
-
-<script>
-
-  var languageSelector = document.getElementById("language-dropdown");
-
-      function changeLanguageParam() {
-        var url=window.location.href;
-        selectedLanguage = languageSelector.value
-
-        urlWithoutLanguageParam = url.replace(/(language=\w*|\&language=\w*)/,"");
-        separator = (url.indexOf("?") === -1)? "?" : "&";
-        newUrl = urlWithoutLanguageParam + separator + "language=" + selectedLanguage;
-        cleanNewUrl = newUrl.replace("?&","?");
-        window.location.href = cleanNewUrl;
-      }
-</script>
