@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
   end
   def show
     @lesson = Lesson.find(params[:id])
-    @language = Language.find_by_name("English")
+    @language = current_user.target_language
     @first_phrase = @lesson.phrases.first
   end
 end

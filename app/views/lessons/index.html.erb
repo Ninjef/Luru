@@ -3,6 +3,7 @@
 <ul>
   <% @lessons.each do |lesson| %>
     <li><%= link_to lesson.name, lesson_path(lesson), other_param: params[:language_id] %>
+      <div><%= link_to "Start", lesson_phrase_path(lesson, lesson.first_phrase, language_id: current_user.target_language.id) if lesson.first_phrase %> </div>
       <ul>
         <li><%= lesson.phrases.count %> Phrases</li>
         <li><%= lesson.phrase_tags %></li>
