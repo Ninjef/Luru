@@ -15,10 +15,9 @@
   <div class="container">
     <div class="jumbotron" align = "center">
       <h1><%=@translated_phrase_text%></h1>
-      <img src= <%= @image_search_results.at(0).thumbnail.url %>>
-      <img src= <%= @image_search_results.at(1).thumbnail.url %>>
-      <img src= <%= @image_search_results.at(2).thumbnail.url %>>
-      <img src= <%= @image_search_results.at(3).thumbnail.url %>>
+      <% @image_search_results.each do |image| %>
+        <img src= <%= image.thumbnail.url %>>
+      <% end %>
     </div>
   </div>
 
